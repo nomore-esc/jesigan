@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- 서울 열린데이터광장 OpenAPI는 http(8088)만 제공 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">openapi.seoul.go.kr</domain>
+    </domain-config>
+</network-security-config>

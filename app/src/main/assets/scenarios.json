@@ -1,0 +1,41 @@
+{
+  "_note": "시연용 시나리오. hospital 시나리오의 주차장 이름·면수는 예시 값입니다. gwanghwamun 시나리오의 세종로·종묘 주차장은 서울 열린데이터 GetParkingInfo 실시간 값으로 갱신됩니다(좌표는 대략값).",
+  "scenarios": [
+    {
+      "id": "hospital",
+      "title": "화요일 병원 진료",
+      "destination": "서울아산병원",
+      "destLat": 37.5268,
+      "destLng": 127.1082,
+      "appointment": "14:00",
+      "startTime": "13:10",
+      "weekday": 3,
+      "remainMin": 34,
+      "defaultLotId": "main",
+      "lots": [
+        { "id": "main", "name": "병원 본관 주차장", "lat": 37.5262, "lng": 127.1077, "total": 1200, "occupied": 1150, "walkMin": 6, "extraDriveMin": 0 },
+        { "id": "west", "name": "서문 제2주차장", "lat": 37.5271, "lng": 127.1060, "total": 300, "occupied": 277, "walkMin": 8, "extraDriveMin": 2 },
+        { "id": "public", "name": "인근 공영주차장", "lat": 37.5285, "lng": 127.1055, "total": 200, "occupied": 159, "walkMin": 10, "extraDriveMin": 1 }
+      ],
+      "seedHistory": { "main": [12, 17, 13], "west": [3, 4, 3] }
+    },
+    {
+      "id": "gwanghwamun",
+      "title": "광화문 공연 (실시간 데이터)",
+      "destination": "세종문화회관",
+      "destLat": 37.5725,
+      "destLng": 126.9758,
+      "appointment": "15:00",
+      "startTime": "14:30",
+      "weekday": 4,
+      "remainMin": 22,
+      "defaultLotId": "building",
+      "lots": [
+        { "id": "building", "name": "건물 부설 주차장", "lat": 37.5727, "lng": 126.9760, "total": 80, "occupied": 78, "walkMin": 1, "extraDriveMin": 0 },
+        { "id": "sejongno", "name": "세종로 공영주차장", "lat": 37.5735, "lng": 126.9768, "total": 1260, "occupied": 789, "walkMin": 4, "extraDriveMin": 0, "seoulCode": "171721" },
+        { "id": "jongmyo", "name": "종묘 공영주차장", "lat": 37.5714, "lng": 126.9945, "total": 1312, "occupied": 996, "walkMin": 16, "extraDriveMin": 4, "seoulCode": "171730" }
+      ],
+      "seedHistory": {}
+    }
+  ]
+}
