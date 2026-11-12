@@ -21,6 +21,8 @@
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="landscape">
+            <!-- 주행 중 화면: 숫자 하나 + 음성만 → 운전자 주의분산 최적화(Distraction Optimized) 선언 -->
+            <meta-data android:name="distractionOptimized" android:value="true" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

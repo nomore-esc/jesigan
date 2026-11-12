@@ -212,6 +212,8 @@ class MainActivity : AppCompatActivity(), PleosBridge.Listener {
     }
 
     private fun arriveArea() {
+        // 남은 운전 시간만큼 시계를 진행 (시연 버튼으로 바로 도착시킬 때도 시간이 맞도록)
+        planOf(chosenId)?.let { if (it.driveMin > 0) clock = clock.plusMinutes(it.driveMin.toLong()) }
         remainMin = 0
         inAreaSince = clock
         mode = Mode.SEARCHING

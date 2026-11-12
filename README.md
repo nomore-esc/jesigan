@@ -24,6 +24,13 @@
 - 실시간 데이터: 서울 열린데이터광장 `GetParkingInfo` (서울시 시영주차장 실시간 주차대수). 키가 없으면 `sample` 키(최대 5건)로 조회합니다.
 - 음성: 현재 기기 내장 TextToSpeech로 안내합니다. Pleos TextToSpeech · SpeechToText SDK는 Pleos Playground 클라이언트 ID/시크릿 발급 후 연동합니다. 마이크 음성을 외부 음성 인식 서비스로 보내지 않습니다.
 
+## 시연 영상 · 화면
+
+- 시연 영상: [`docs/jesigan_demo_full.mp4`](docs/jesigan_demo_full.mp4) (인트로 34초 + Pleos Connect 에뮬레이터 실제 구동 75초)
+- 화면: `docs/app_01_plan.png` ~ `docs/app_06_repeat.png`
+- 에뮬레이터 시연에서 기어 D/P는 Pleos Connect Virtual Console로 바꿨고, 앱은 Vehicle SDK `GearSelectionListener`로 실제 `GEAR_DRIVE` / `GEAR_PARK` 이벤트를 받아 동작했습니다.
+- 주행 중(기어 D)에도 화면이 유지되도록 `distractionOptimized`를 선언했습니다. 주행 중 화면은 큰 숫자 하나와 음성 안내 위주입니다.
+
 ## 실행 방법
 
 1. Android Studio SDK Manager에 Pleos Connect System Image 사이트를 추가하고 **Pleos Connect v2.1.0 (API 34)** 이미지를 설치합니다. ([설치 가이드](https://document.pleos.ai/docs/connect/guide/getting-started/application-development/setup-connect-sdk-emulator))

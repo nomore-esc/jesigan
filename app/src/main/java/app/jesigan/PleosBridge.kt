@@ -43,6 +43,10 @@ class PleosBridge(private val context: Context, private val listener: Listener) 
     var naviReady = false
         private set
 
+    /** 내비에 진행 중인 경로가 있을 때만 경유지를 넣음 (경로 없이 넣으면 내비 검색 화면이 앞으로 나옴) */
+    var hasRoute = false
+        private set
+
     private val gearListener = object : GearSelectionListener {
         override fun onSelected(gearSel: VehicleGear?) {
             val g = gearSel ?: VehicleGear.GEAR_UNKNOWN
@@ -60,6 +64,7 @@ class PleosBridge(private val context: Context, private val listener: Listener) 
             val raw = destinationInfo.remainTime
             // remainTime 단위는 문서에 명시되지 않음. 초 단위로 보고 분으로 올림 (원값은 로그에 남김)
             val min = if (raw <= 0) 0 else Math.ceil(raw / 60.0).toInt()
+            hasRoute = destinationInfo.name.isNotBlank() && raw > 0
             SdkLog.add("NaviHelper", "onDestinationInfo", "${destinationInfo.name} · remainTime=$raw")
             main.post { listener.onDestination(destinationInfo.name, destinationInfo.latitude, destinationInfo.longitude, min) }
         }
@@ -150,6 +155,10 @@ class PleosBridge(private val context: Context, private val listener: Listener) 
         val n = navi
         if (n == null || !naviReady) {
             SdkLog.add("NaviHelper", "addWaypoint (시연)", "${lot.name} · Navi 미연결")
+            return
+        }
+        if (!hasRoute) {
+            SdkLog.add("NaviHelper", "addWaypoint 대기", "${lot.name} · 내비 경로 시작 시 추가")
             return
         }
         try {
