@@ -9,7 +9,7 @@
 
 ## APK
 
-- 위치: [`apk/jesigan_release.apk`](apk/jesigan_release.apk) (release 서명)
+- 위치: [`apk/정영성_제시간_release.apk`](<apk/정영성_제시간_release.apk>) (release 서명)
 - 패키지: `app.jesigan` · versionName 0.1.0 · minSdk 28 · targetSdk 35
 
 ## 사용한 Pleos Connect SDK
@@ -37,7 +37,7 @@
 2. Device Manager에서 Automotive → **Pleos Connect v2.1.0** AVD를 만들고 실행합니다 (Cold boot, RAM 4GB 권장).
 3. APK 설치:
    ```bash
-   adb install -r apk/jesigan_release.apk
+   adb install -r apk/정영성_제시간_release.apk
    ```
 4. 런처에서 **제시간**을 실행합니다.
 
